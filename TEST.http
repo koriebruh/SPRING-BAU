@@ -1,0 +1,20 @@
+### GET request to example server
+POST http://localhost:8080/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username":"admin1",
+    "password":"password123",
+    "email": "koriejagto@gmail.com"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "password123"
+}
