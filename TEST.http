@@ -18,3 +18,43 @@ Content-Type: application/json
   "username": "admin1",
   "password": "password123"
 }
+
+###
+GET http://localhost:8080/api/hello
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEiLCJpYXQiOjE3MzA3MDI1NzcsImV4cCI6MTczMDc4ODk3N30.zMF4Ooz2uGcP1Mpni5Ssmi4rysVrYq8RAbUwey2Pr4U
+
+
+###
+POST http://localhost:8080/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "password123"
+}
+
+### logout
+POST http://localhost:8080/api/auth/logout
+Accept: application/json
+Content-Type: application/json
+
+
+###############################################CATEGORY######################################
+POST http://localhost:8080/api/categories
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEiLCJpYXQiOjE3MzA3MDMxMjUsImV4cCI6MTczMDc4OTUyNX0.879RdKAxgzesHiyKZ6EZe_hXy56DCADSXzbD0_RanhE
+
+{
+  "name": "BodyWashs",
+  "description": "Buat mandi lah bang"
+}
+
+### GET ALL CATEGORIES
+GET http://localhost:8080/api/categories
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjEiLCJpYXQiOjE3MzA3MDMxMjUsImV4cCI6MTczMDc4OTUyNX0.879RdKAxgzesHiyKZ6EZe_hXy56DCADSXzbD0_RanhE
