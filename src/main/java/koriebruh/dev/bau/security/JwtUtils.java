@@ -32,10 +32,32 @@ public class JwtUtils {
         return claims.getSubject();
     }
 
-    public boolean validateToken(String token) {
+    public String extractUsername(String token) {
         try {
-            Jwts.parserBuilder().setSigningKey(SECRET_KEY).build().parseClaimsJws(token);
-            return true;
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(SECRET_KEY)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+            return claims.getSubject();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public boolean validateToken(String token, String username) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(SECRET_KEY)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+
+            String tokenUsername = claims.getSubject();
+            Date expiration = claims.getExpiration();
+
+            // Check if token username matches and token is not expired
+            return username.equals(tokenUsername) && expiration.after(new Date());
         } catch (Exception e) {
             return false;
         }
